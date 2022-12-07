@@ -1,3 +1,4 @@
+import React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import MicIcon from '@material-ui/icons/Mic';
 import { Button } from '@material-ui/core';
@@ -14,7 +15,6 @@ const SearchInput = styled.div`
     padding: 10px 15px;
     width: 500px;
     margin: 0px auto;
-    margin-top: 40px;
     border-radius: 999px;
     input {
         flex: 1;
@@ -63,7 +63,8 @@ const Search = ({ hide }) => {
                         <Button type="submit" variant="outlined">Google Search</Button>
                         <Button variant="outlined">I am feeling lucky</Button>
                     </SearchButton>
-                )}
+                )
+            }
         </form>
     )
 }

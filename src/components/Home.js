@@ -39,6 +39,7 @@ const HomeContainer = styled.div`
             flex: center;
             object-fit: contain;
             height: 100px;
+            margin-bottom: 5px;
         }
 `
 
