@@ -9,6 +9,8 @@ import RoomIcon from "@material-ui/icons/Room";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 import styled from "styled-components";
+import { useStateValue } from "./SearchProvider";
+import useGoogle from "./useGoogle";
 
 const SearchPageHeader = styled.div`
 display: flex;
@@ -48,9 +50,53 @@ const SearchPageOption = styled.div`
     align-items: center;
     margin-right: 20px;
 `
+const SearchPageResults = styled.div`
+       max-width: 650px;
+       margin-top: 20px;
+       margin-left: 240px;
+       margin-bottom: 100px;
+       .resultCount {
+           color:#70757a;
+           font-size: 14px;
+       }
+       .result {
+           margin: 40px 0px;
+       }
+   `
+   
+   const SearchPageLink = styled.a`
+       display: flex;
+       align-itmes: center;
+       text-decoration: none;
+       color: #000;
+       margin-bottom: 3px;
+       img {
+           height: 50px;
+           width: 50px;
+           object-fit: contain;
+           margin-right: 10px;
+       }
+   `
+   
+   const SearchPageResultTitle = styled.a`
+       text-decoration: none;
+       h2 {
+           font-weight: 500;
+       }
+       &:hover{
+           text-decoration: underline;
+       }
+   `
+   
+   const SearchPageResultDesc = styled.p`
+       margin-top: 10px;
+   `
 
 
 const SearchPage = () => {
+    const [ {term} ] = useStateValue();
+    const { data } = useGoogle(term);
+    console.log(data);
     return (
         <div> 
         <SearchPageHeader>
@@ -91,8 +137,59 @@ const SearchPage = () => {
         </SearchPageOptions>
     </div>
         </SearchPageHeader>
-    </div>
+        {term && (
+                <SearchPageResults>
+                    <p className="resultCount">
+                        About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime}) for {term}
+                    </p>
+                    {data?.items.map(item => (
+                        <div className="result">
+                            <SearchPageLink href={item.link}>
+                                {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
+                                    <img src="https://thewebdev.tech/static/ce59ef6831a6ff9cba3b957baece8d8c/a3e81/logo.webp"
+                                    alt=""/>
+                                )}
+                                {item.displayLink}
+                            </SearchPageLink>
+                            <SearchPageResultTitle href={item.link}>
+                                <h2> {item.title} </h2>
+                            </SearchPageResultTitle>
+                            <SearchPageResultDesc> {item.snippet} </SearchPageResultDesc>
+                        </div>
+                    ))}
+                </SearchPageResults>
+            )}
+        </div>
     )
 }
-
-export default SearchPage;
+        
+export default SearchPage;   
+        
+        
+        
+        
+        
+        
+        
+        
+        {/* <SearchPageResults>
+            <p className="resultCount">
+                About 21,80,00,000 results (1.32 seconds) for TWD
+            </p>
+            <div className="result">
+                <SearchPageLink href="">
+                    <img src ="https://thewebdev.tech/static/ce59ef6831a6ff9cba3b957baece8d8c/a3e81/logo.webp"
+                alt=""/>
+                thewebdev.tech
+            </SearchPageLink>
+            <SearchPageResultTitle href="">
+                <h2>The Web Dev</h2>
+            </SearchPageResultTitle>
+            <SearchPageResultDesc> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+                suscipit!
+            </SearchPageResultDesc>
+            </div>
+        </SearchPageResults>
+    </div>
+    )
+} */}

@@ -3,6 +3,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import MicIcon from '@material-ui/icons/Mic';
 import { Button } from '@material-ui/core';
 import styled from 'styled-components';
+ import { useNavigate} from 'react-router-dom';
+import { useStateValue } from './SearchProvider.js';
+import { SET_SEARCH_TERM } from './types.js';
 //import { Search } from '@material-ui/icons';
 
 import { useState } from 'react';
@@ -50,9 +53,21 @@ const SearchButton = styled.div`
 
 const Search = ({ hide }) => {
     const [input, setInput] = useState("");
+    const navigate = useNavigate();
+    const[{}, dispatch] = useStateValue();
+
+    const search = e => {
+        e.preventDefault();
+        dispatch({
+            type: SET_SEARCH_TERM,
+            term: input
+        })
+        console.log(input);
+         navigate("/search");
+    }
 
     return (
-        <form>
+        <form onSubmit={search}>
             <SearchInput>
                 <SearchIcon className='searchicon' />
                 <input value={input} onChange={e => setInput(e.target.value)} />
