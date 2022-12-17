@@ -1,8 +1,8 @@
-import react, { createContext, useContext, useReducer } from "react"
+import React, { createContext, useContext, useReducer } from "react";
 
 export const StateContext = createContext();
 
-export const SearchProvider = ({ reducer, initialState, children})=>(
+export const SearchProvider = ({ reducer, initialState, children})=> (
     <StateContext.Provider value={useReducer(reducer, initialState)}>
         {children}
     </StateContext.Provider>
