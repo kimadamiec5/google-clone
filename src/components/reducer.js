@@ -1,4 +1,4 @@
-import { SET_SEARCH_TERM } from "./types";
+import { SET_SEARCH_TERM } from './types';
 
 export const initialState= {
     term: ''

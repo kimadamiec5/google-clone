@@ -1,3 +1,7 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-empty-pattern */
+/* eslint-disable no-undef */
+/* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import MicIcon from '@material-ui/icons/Mic';
@@ -52,7 +56,7 @@ const SearchButton = styled.div`
 const Search = ({ hide }) => {
     const [input, setInput] = useState("");
     const navigate = useNavigate();
-    const[{}, dispatch] = useStateValue();
+    const[dispatch] = useStateValue();
 
     const search = e => {
         e.preventDefault();
@@ -61,7 +65,7 @@ const Search = ({ hide }) => {
             term: input
         })
         console.log(input);
-         navigate("/search");
+         navigate.push("/search");
     }
 
     return (

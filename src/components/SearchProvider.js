@@ -1,4 +1,7 @@
-import React, { createContext, useContext, useReducer } from "react";
+/* eslint-disable react/prop-types */
+/* eslinit-disable no-unused-vars */
+
+import React, { createContext, useContext, useReducer } from 'react';
 
 export const StateContext = createContext();
 
@@ -9,3 +12,4 @@ export const SearchProvider = ({ reducer, initialState, children})=> (
 )
 
 export const useStateValue =()=>useContext(StateContext);
+// export default SearchProvider;
