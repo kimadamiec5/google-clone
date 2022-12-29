@@ -1,8 +1,8 @@
-import { SET_SEARCH_TERM } from './types';
+import { SET_SEARCH_TERM } from "./types";
 
-export const initialState= {
+export const initialState = {
     term: ''
-}
+};
 
 const reducer = (state, action) => {
     switch(action.type) {
@@ -11,10 +11,9 @@ const reducer = (state, action) => {
                 ...state,
                 term: action.term
             };
-
-            default :
-                return state
+        default :
+            return state
     }
-}
+};
 
 export default reducer;

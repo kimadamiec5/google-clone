@@ -10,8 +10,8 @@ import RoomIcon from "@material-ui/icons/Room";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 import styled from "styled-components";
-import { useStateValue } from "./SearchProvider";
-import useGoogle from "./useGoogle";
+import { useStateValue } from "../SearchProvider";
+import useGoogle from "../useGoogle";
 
 const SearchPageHeader = styled.div`
 display: flex;
@@ -140,28 +140,28 @@ const SearchPage = () => {
         </SearchPageHeader>
         {term && (
                 <SearchPageResults>
-                    <p className="resultCount">
-                        About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime}) for {term}
-                    </p>
-                    {data?.items.map(item => (
-                        <div className="result">
-                            <SearchPageLink href={item.link}>
-                                {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
-                                    <img src="https://thewebdev.tech/static/ce59ef6831a6ff9cba3b957baece8d8c/a3e81/logo.webp"
-                                    alt=""/>
-                                )}
-                                {item.displayLink}
-                            </SearchPageLink>
-                            <SearchPageResultTitle href={item.link}>
-                                <h2> {item.title} </h2>
-                            </SearchPageResultTitle>
-                            <SearchPageResultDesc> {item.snippet} </SearchPageResultDesc>
-                        </div>
-                    ))}
-                </SearchPageResults>
-            )}
-        </div>
-    )
+                <p className="resultCount">
+                    About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime}) for {term}
+                </p>
+                {data?.items.map(item => (
+                    <div className="result">
+                        <SearchPageLink href={item.link}>
+                            {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
+                                <img src="https://thewebdev.tech/static/ce59ef6831a6ff9cba3b957baece8d8c/a3e81/logo.webp"
+                                alt=""/>
+                            )}
+                            {item.displayLink}
+                        </SearchPageLink>
+                        <SearchPageResultTitle href={item.link}>
+                            <h2> {item.title} </h2>
+                        </SearchPageResultTitle>
+                        <SearchPageResultDesc> {item.snippet} </SearchPageResultDesc>
+                    </div>
+                ))}
+            </SearchPageResults>
+        )}
+    </div>
+)
 }
-        
+    
 export default SearchPage;

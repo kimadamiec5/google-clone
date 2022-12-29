@@ -8,8 +8,8 @@ import MicIcon from '@material-ui/icons/Mic';
 import { Button } from '@material-ui/core';
 import styled from 'styled-components';
 import { useNavigate} from 'react-router-dom';
-import { useStateValue } from './SearchProvider.js';
-import { SET_SEARCH_TERM } from './types.js';
+import { useStateValue } from '../SearchProvider.js';
+import { SET_SEARCH_TERM } from '../types.js';
 import { useState } from 'react';
 
 const SearchInput = styled.div`
