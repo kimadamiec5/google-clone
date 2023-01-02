@@ -56,7 +56,7 @@ const SearchButton = styled.div`
 const Search = ({ hide }) => {
     const [input, setInput] = useState("");
     const navigate = useNavigate();
-    const[dispatch] = useStateValue();
+    const[{}, dispatch] = useStateValue();
 
     const search = e => {
         e.preventDefault();

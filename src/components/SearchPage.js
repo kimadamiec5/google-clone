@@ -140,28 +140,54 @@ const SearchPage = () => {
         </SearchPageHeader>
         {term && (
                 <SearchPageResults>
-                <p className="resultCount">
-                    About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime}) for {term}
-                </p>
-                {data?.items.map(item => (
-                    <div className="result">
-                        <SearchPageLink href={item.link}>
-                            {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
-                                <img src="https://thewebdev.tech/static/ce59ef6831a6ff9cba3b957baece8d8c/a3e81/logo.webp"
-                                alt=""/>
-                            )}
-                            {item.displayLink}
-                        </SearchPageLink>
-                        <SearchPageResultTitle href={item.link}>
-                            <h2> {item.title} </h2>
-                        </SearchPageResultTitle>
-                        <SearchPageResultDesc> {item.snippet} </SearchPageResultDesc>
-                    </div>
-                ))}
-            </SearchPageResults>
-        )}
-    </div>
-)
-}
-    
+                    <p className="resultCount">
+                        About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime}) for {term}
+                    </p>
+                    {data?.items.map(item => (
+                        <div className="result">
+                            <SearchPageLink href={item.link}>
+                                {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
+                                    <img src="https://thewebdev.tech/static/ce59ef6831a6ff9cba3b957baece8d8c/a3e81/logo.webp"
+                                    alt=""/>
+                                )}
+                                {item.displayLink}
+                            </SearchPageLink>
+                            <SearchPageResultTitle href={item.link}>
+                                <h2> {item.title} </h2>
+                            </SearchPageResultTitle>
+                            <SearchPageResultDesc> {item.snippet} </SearchPageResultDesc>
+                        </div>
+                    ))}
+                </SearchPageResults>
+            )}
+        </div>
+    );
+};
+        
 export default SearchPage;
+
+
+//         {/* <SearchPageResults>
+//             <p className="resultCount">
+//                 About 21, 80,00,000 results (1.32 seconds) for TWD
+//             </p>
+//             <div className="result">
+//                 <SearchPageLink href="">
+//                     <img src="https://thewebdev.tech/static/ce59ef6831a6ff9cba3b957baece8d8c/a3e81/logo.webp"
+//                     alt=""/>
+//                     thewebdev.tech
+//                 </SearchPageLink>
+//                 <SearchPageResultTitle href="">
+//                     <h2>The Web Dev</h2>
+//                 </SearchPageResultTitle>
+//                 <SearchPageResultDesc>
+//                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+//                     suscipit!
+//                 </SearchPageResultDesc>
+//             </div>
+//         </SearchPageResults>
+//     </div>
+//     );
+// };              */}
+                                                   
+// //export default SearchPage;
