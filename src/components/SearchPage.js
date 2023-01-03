@@ -165,29 +165,3 @@ const SearchPage = () => {
 };
         
 export default SearchPage;
-
-
-//         {/* <SearchPageResults>
-//             <p className="resultCount">
-//                 About 21, 80,00,000 results (1.32 seconds) for TWD
-//             </p>
-//             <div className="result">
-//                 <SearchPageLink href="">
-//                     <img src="https://thewebdev.tech/static/ce59ef6831a6ff9cba3b957baece8d8c/a3e81/logo.webp"
-//                     alt=""/>
-//                     thewebdev.tech
-//                 </SearchPageLink>
-//                 <SearchPageResultTitle href="">
-//                     <h2>The Web Dev</h2>
-//                 </SearchPageResultTitle>
-//                 <SearchPageResultDesc>
-//                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-//                     suscipit!
-//                 </SearchPageResultDesc>
-//             </div>
-//         </SearchPageResults>
-//     </div>
-//     );
-// };              */}
-                                                   
-// //export default SearchPage;
